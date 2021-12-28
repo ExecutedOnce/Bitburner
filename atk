@@ -1,0 +1,9 @@
+var target = args[0];
+brutessh(target);
+ftpcrack(target);
+nuke(target);
+files = ["worm.script"];
+scp(files, "home", target);
+var threadcount = Math.floor(getServerMaxRam(target)/getScriptRam("worm.script"));
+killall(target);
+exec("worm.script", target, threadcount); 
