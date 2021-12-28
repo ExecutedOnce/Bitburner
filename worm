@@ -1,0 +1,14 @@
+var target = getHostname();
+while(true) {
+	
+    if (getServerSecurityLevel(target) > getServerMinSecurityLevel(target) + 5) {
+        // If the server's security level is above our threshold, weaken it
+        weaken(target);
+    } else if (getServerMoneyAvailable(target) < getServerMaxMoney(target) * 0.75) {
+        // If the server's money is less than our threshold, grow it
+        grow(target);
+    } else {
+        // Otherwise, hack it
+        hack(target);
+    }
+}
