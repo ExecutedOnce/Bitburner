@@ -1,0 +1,8 @@
+var currentServers = getPurchasedServers();
+var target = args[0];
+for (var i = 0; i < currentServers.length; ++i) {
+    var serv = currentServers[i];
+	var threadcount = Math.floor(getServerMaxRam(serv)/getScriptRam("targeted.script"));
+	scp("targeted.script","home", serv)
+	exec("targeted.script", serv, threadcount, target);
+	}
